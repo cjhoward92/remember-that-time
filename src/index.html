@@ -6,12 +6,28 @@
   </head>
   <body>
     <div id="root"></div>
-    <script src="../dist/index.bundle.js"></script>
+    <!--<script src="../dist/index.bundle.js"></script>-->
+    <script>
+      {
+        const scripts = [];
+        // Dynamically insert the DLL script in development env in the
+        // renderer process
+        // if (process.env.NODE_ENV === 'dev') {
+        //   scripts.push('../dist/vendor.dll.js');
+        // }
+        // Dynamically insert the bundled app script in the renderer process
+        const port = process.env.PORT || 8080;
+        scripts.push(
+          (process.env.HOT)
+            ? 'http://localhost:' + port + '/dist/index.bundle.js'
+            : '../dist/index.bundle.js'
+        );
+        document.write(
+          scripts
+            .map(script => '<script defer src="' + script + '"><\/script>')
+            .join('')
+        );
+      }
+    </script>
   </body>
-
-  <script>
-    // You can also require other files to run in this process
-    // require('./renderer.js')
-
-  </script>
 </html>
