@@ -1,0 +1,16 @@
+$icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
+$bootstrap-sass-asset-helper: true;
+@import '~bootstrap-sass/assets/stylesheets/_bootstrap.scss';
+
+body {
+    margin: 0;
+    font-family: 'Segeo UI', 'Arial', sans-serif;
+}
+
+.main-content {
+    margin: 10px;
+}
+
+.todolist {
+    list-style: none;
+}

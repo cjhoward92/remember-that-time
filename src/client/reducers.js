@@ -14,11 +14,14 @@ function visibilityFilter(state = SHOW_ALL, action) {
 function todos(state = [], action) {
     switch (action.type) {
         case ADD_TODO:
+            let id = state.length;
+
             return [
                 ...state,
                 {
                     text: action.text,
-                    completed: false
+                    completed: false,
+                    id
                 }
             ]
         case TOGGLE_TODO:
