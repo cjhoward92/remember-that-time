@@ -1,13 +1,14 @@
 import React, { PropTypes } from 'react';
 import Todo from './Todo.jsx';
 
-const TodoList = ({ todos, onTodoClick }) => (
+const TodoList = ({ todos, onTodoClick, onDeleteClick }) => (
     <ul className="todolist">
         {todos.map(todo =>
             <Todo
                 key={todo.id}
                 {...todo}
                 onClick={()=>onTodoClick(todo.id)}
+                onDeleteClick={()=>onDeleteClick(todo.id)}
             />
         )}
     </ul>
