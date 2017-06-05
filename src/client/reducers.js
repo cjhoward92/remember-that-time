@@ -1,51 +1,45 @@
+// @flow
+
 import { combineReducers } from 'redux'
-import { ADD_TODO, TOGGLE_TODO, SET_VISIBILITY_FILTER, REMOVE_TODO, VisibilityFilters } from './actions'
-const { SHOW_ALL } = VisibilityFilters
+import type { Action, AddEntryAction, RemoveEntryAction } from './actions'
+import { Entry } from './types'
 
-function visibilityFilter(state = SHOW_ALL, action) {
-    switch (action.type) {
-        case SET_VISIBILITY_FILTER:
-            return action.filter
-        default:
-            return state
+type State = {
+    entries: Array<Entry>
+}
+
+const globals = {
+    nextId: 1
+}
+
+function entries(state: Array<Entry> = [], action: Action): Array<Entry> {
+    if (action.type === 'ADD_ENTRY') {
+        return addEntryState(state, action)
+    } else if (action.type === 'REMOVE_ENTRY') {
+        return removeEntryState(state, action)
+    } else {
+        return state;
     }
 }
 
-function todos(state = [], action) {
-    switch (action.type) {
-        case ADD_TODO:
-            let id = state.length;
-
-            return [
-                ...state,
-                {
-                    text: action.text,
-                    completed: false,
-                    id
-                }
-            ]
-        case TOGGLE_TODO:
-            return state.map((todo) => {
-                if (todo.id === action.index) {
-                    return Object.assign({}, todo, {
-                        completed: !todo.completed
-                    })
-                }
-                return todo
-            })
-        case REMOVE_TODO:
-            return state.filter((todo) => {
-                if (todo.id === action.index) return false;
-                return true;
-            })
-        default:
-            return state
-    }
+function addEntryState(state: Array<Entry> = [], action: AddEntryAction): Array<Entry> {
+    let entry = action.entry
+    entry.id = globals.nextId
+    globals.nextId++;
+    let newState = state.slice()
+    newState.push(entry)
+    return newState
 }
 
-const todoApp = combineReducers({
-    visibilityFilter,
-    todos
+function removeEntryState(state: Array<Entry> = [], action: RemoveEntryAction): Array<Entry> {
+    return state.filter((entry) => {
+        if (entry.id === action.id) return false
+        return true
+    })
+}
+
+const timelineApp = combineReducers({
+    entries
 })
 
-export default todoApp
+export default timelineApp

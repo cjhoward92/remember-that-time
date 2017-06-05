@@ -10,13 +10,7 @@ export default class App extends React.Component {
     render() {
         return (
             <div className="container-fluid main-content">
-                <div className="row">
-                    <div className="col-lg-12">
-                        <AddTodo />
-                        <VisibleTodoList />
-                        <Footer />
-                    </div>
-                </div>
+                <Footer />
             </div>
         )
     }

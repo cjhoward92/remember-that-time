@@ -1,38 +1,17 @@
-/*
- * action types
- */
+// @flow
+import { Entry } from './types'
 
-export const ADD_TODO = 'ADD_TODO'
-export const TOGGLE_TODO = 'TOGGLE_TODO'
-export const SET_VISIBILITY_FILTER = 'SET_VISIBILITY_FILTER'
-export const REMOVE_TODO = 'REMOVE_TODO'
+export type AddEntryAction = { type: 'ADD_ENTRY', entry: Entry }
+export type RemoveEntryAction = { type: 'REMOVE_ENTRY', id: number }
 
-/*
- * other constants
- */
+export type Action =
+    | AddEntryAction
+    | RemoveEntryAction
 
-export const VisibilityFilters = {
-  SHOW_ALL: 'SHOW_ALL',
-  SHOW_COMPLETED: 'SHOW_COMPLETED',
-  SHOW_ACTIVE: 'SHOW_ACTIVE'
+export function addEntry(entry: Entry): AddEntryAction {
+    return { type: 'ADD_ENTRY', entry }
 }
 
-/*
- * action creators
- */
-
-export function addTodo(text) {
-  return { type: ADD_TODO, text }
-}
-
-export function toggleTodo(index) {
-  return { type: TOGGLE_TODO, index }
-}
-
-export function deleteTodo(index) {
-  return { type: REMOVE_TODO, index }
-}
-
-export function setVisibilityFilter(filter) {
-  return { type: SET_VISIBILITY_FILTER, filter }
+export function removeEntry(id: number): RemoveEntryAction {
+    return { type: 'REMOVE_ENTRY', id }
 }

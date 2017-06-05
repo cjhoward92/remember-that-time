@@ -4,11 +4,12 @@
   "description": "A fun app for organizing photos",
   "main": "src/main.js",
   "scripts": {
-    "build": "cross-env NODE_ENV=prod ./node_modules/.bin/webpack --config webpack.config.js --display-error-details",
+    "build": "npm run flow && cross-env NODE_ENV=prod ./node_modules/.bin/webpack --config webpack.config.js --display-error-details",
     "start": "npm run build && npm run electron",
     "dev": "cross-env NODE_ENV=dev HOT=1 START_HOT=1 ./node_modules/.bin/webpack-dev-server --config webpack.config.js",
     "electron": "electron .",
-    "start-hot-renderer": "cross-env HOT=1 NODE_ENV=development electron ."
+    "start-hot-renderer": "cross-env HOT=1 NODE_ENV=development electron .",
+    "flow": "./node_modules/.bin/flow"
   },
   "repository": "https://github.com/electron/electron-quick-start",
   "keywords": [],
