@@ -19,3 +19,14 @@ export class Entry {
         this.id = id
     }
 };
+
+export type PhotoItem = {
+    src: string,
+    title: string,
+    isSelected: boolean
+}
+
+export type State = {
+    entries: Array<Entry>,
+    photos: Array<PhotoItem>
+}

@@ -1,12 +1,12 @@
 // @flow
 
 import { combineReducers } from 'redux'
-import type { Action, AddEntryAction, RemoveEntryAction } from './actions'
-import { Entry } from './types'
-
-type State = {
-    entries: Array<Entry>
-}
+import type { Action, 
+              AddEntryAction,
+              RemoveEntryAction, 
+              AddPhotoAction, 
+              SelectPhotoAction } from './actions'
+import type { PhotoItem, State, Entry } from './types'
 
 const globals = {
     nextId: 1
@@ -38,8 +38,35 @@ function removeEntryState(state: Array<Entry> = [], action: RemoveEntryAction): 
     })
 }
 
+function photos(state: Array<PhotoItem> = [], action: Action): Array<PhotoItem> {
+    if (action.type === 'ADD_PHOTO') {
+        console.log('Added a photo')
+        return addPhoto(state, action)
+    } else if (action.type === 'SELECT_PHOTO') {
+        return selectPhoto(state, action)
+    }
+
+    return state
+}
+
+function addPhoto(state: Array<PhotoItem> = [], action: AddPhotoAction): Array<PhotoItem> {
+    const newState = state.slice()
+    newState.push(action.photo)
+    return newState
+}
+
+function selectPhoto(state: Array<PhotoItem> = [], action: SelectPhotoAction): Array<PhotoItem> {
+    return state.map(p => {
+        if (p.src === action.photo.src) {
+            p.isSelected = !p.isSelected
+        }
+        return p
+    })
+}
+
 const timelineApp = combineReducers({
-    entries
+    entries,
+    photos
 })
 
 export default timelineApp

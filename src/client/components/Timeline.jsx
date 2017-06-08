@@ -1,14 +1,13 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
-export default class Timeline extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-    render() {
-        return (
-            <div style={{border: 'thin solid blue'}}>
-                {this.props.msg}
-            </div>
-        )
-    }
+const Timeline = ({ onClick }) => (
+    <div className="timeline" onClick={onClick}>
+        &nbsp;
+    </div>
+)
+
+Timeline.propTypes = {
+    onClick: PropTypes.func.isRequired
 }
+
+export default Timeline

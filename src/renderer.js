@@ -1,3 +1,15 @@
-// This file is required by the index.html file and will
-// be executed in the renderer process for that window.
-// All of the Node.js APIs are available in this process.
+// @flow
+const { dialog, remote } = require('electron')
+
+module.exports.selectImage = function (): string {
+    const window = remote.BrowserWindow
+    const paths = dialog.showOpenDialog(window, {
+        filters: {
+            name: 'Images', extensions: [
+                'jpg', 'jpeg', 'gif', 'png', 'bmp'
+            ]
+        }
+    })
+
+    return paths[0]
+}

@@ -16,14 +16,6 @@ body {
     margin: 10px;
 }
 
-.todolist {
-    list-style: none;
-
-    li {
-        margin: 5px;
-    }
-}
-
 footer {
     position: fixed;
     height: 50px;
@@ -36,37 +28,20 @@ footer {
     font-size: 16px;
 }
 
-$link-width: 150px;
-$link-display: inline-block;
-$link-border: thin solid gray;
-$link-radius: 4px;
+.timeline {
+    display: block;
+    border-radius: 5px;
+    min-height: 50px;
+    min-width: 50px;
+    background: blue;
+}
 
-.link {
-    min-width: $link-width;
-    display: inline-block;
-    border: thin solid gray;
-    border-radius: 4px;
-    padding: 3px;
-    margin: 4px;
-    background: azure;
-    color: black;
-    text-decoration: none;
+.photolist {
+    list-style: none;
+}
 
-    &:hover {
-        background: white;
-        color: blue;
-        text-decoration: none;
-    }
-
-    &-active {
-        min-width: 150px;
-        display: inline-block;
-        border: thin solid gray;
-        border-radius: 4px;
-        padding: 3px;
-        margin: 4px;
-        background: white;
-        color: blue;
-        text-decoration: none;
-    }
+.photo {
+    display: block;
+    height: 100px;
+    width: 100px;
 }
