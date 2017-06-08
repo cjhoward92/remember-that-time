@@ -11,6 +11,7 @@ let AddPhoto = ({ dispatch }) => {
     <div>
       <form className="form" onSubmit={e => {
         e.preventDefault()
+        
         if (!fileInput.value.trim()) {
           return
         }

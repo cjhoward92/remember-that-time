@@ -1,15 +1,15 @@
-// @flow
-const { dialog, remote } = require('electron')
+const remote = require('electron').remote;
+const dialog = remote.dialog;
 
-module.exports.selectImage = function (): string {
+module.exports.selectImage = () => {
     const window = remote.BrowserWindow
-    const paths = dialog.showOpenDialog(window, {
+    dialog.showOpenDialog({
         filters: {
             name: 'Images', extensions: [
                 'jpg', 'jpeg', 'gif', 'png', 'bmp'
             ]
         }
+    }, (file) => {
+        console.log(file)
     })
-
-    return paths[0]
 }
