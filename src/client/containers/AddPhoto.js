@@ -9,14 +9,13 @@ let AddPhoto = ({ dispatch }) => {
 
   return (
     <div>
-      <form className="form" onSubmit={e => {
+      <form className="image-form" onSubmit={e => {
         e.preventDefault()
         
         if (!fileInput.value.trim()) {
           return
         }
         const fileName = fileInput.value
-        console.log(fileName)
 
         if (!titleInput.value.trim()) {
             return
@@ -29,21 +28,34 @@ let AddPhoto = ({ dispatch }) => {
         fileInput.value = ''
         titleInput.value = ''
       }}>
-        <div className="form-group col-lg-3">
+        <div>
           <label htmlFor="source">File</label>
-          <input className="form-control" name="source" type="file" ref={node => {
+          <input name="source" type="text" readOnly="readonly" ref={node => {
             fileInput = node
           }} />
         </div>
-        <div className="form-group col-lg-3">
+        <div>
+          <button onClick={e => {
+            e.preventDefault();
+            renderer.selectImage((file) => {
+              if (file) {
+                fileInput.value = file
+              }
+            })}}>
+            Select Image
+          </button>
+        </div>
+        <div>
           <label htmlFor="title">Title</label>
-          <input className="form-control" name="title" type="text" ref={node => {
+          <input name="title" type="text" ref={node => {
             titleInput = node
           }} />
         </div>
-        <button type="submit" className="btn btn-default">
-          Add Photo
-        </button>
+        <div>
+          <button type="submit">
+            Add Photo
+          </button>
+        </div>
       </form>
     </div>
   )

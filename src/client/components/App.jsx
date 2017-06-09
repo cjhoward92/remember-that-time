@@ -9,10 +9,14 @@ import 'jQuery';
 export default class App extends React.Component {
     render() {
         return (
-            <div className="container-fluid main-content">
-                <AddPhoto />
-                <VisiblePhotolist />
-                <Timeline onClick={() => alert('clicked')} />
+            <div>
+                <div className="sidebar">
+                    <AddPhoto />
+                    <VisiblePhotolist />
+                </div>
+                <div className="main-content">
+                    <Timeline onClick={() => alert('clicked')} />
+                </div>
                 <Footer />
             </div>
         )

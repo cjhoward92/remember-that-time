@@ -1,7 +1,7 @@
 const remote = require('electron').remote;
 const dialog = remote.dialog;
 
-module.exports.selectImage = () => {
+module.exports.selectImage = (cb) => {
     const window = remote.BrowserWindow
     dialog.showOpenDialog({
         filters: {
@@ -10,6 +10,10 @@ module.exports.selectImage = () => {
             ]
         }
     }, (file) => {
-        console.log(file)
+        if (file.length === 0) {
+            cb(null)
+        } else {
+            cb(file[0])
+        }
     })
 }
