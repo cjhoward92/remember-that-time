@@ -5,8 +5,21 @@ import { createStore } from 'redux'
 import timelineApp from './reducers'
 import App from './components/App.jsx'
 
+let photos = []
+renderer.loadFilesFromUserFolder().forEach(f => {
+  photos.push({
+    src: f,
+    title: renderer.getFileName(f),
+    isSelected: false
+  })
+})
 
-let store = createStore(timelineApp)
+const initialState = {
+  entries: [],
+  photos
+}
+
+let store = createStore(timelineApp, initialState)
 
 render(
   <Provider store={store}>

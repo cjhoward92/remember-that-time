@@ -43,6 +43,7 @@ footer {
     list-style: none;
     display: block;
     border: thin solid silver;
+    position: relative;
     border-radius: 4px;
     padding: 4px;
     max-height: 600px;
@@ -51,8 +52,7 @@ footer {
 
 .photo {
     display: block;
-    height: 100px;
-    width: 100px;
+    max-width:100%;
 }
 
 .sidebar {

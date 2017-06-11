@@ -18,30 +18,32 @@ class AddPhoto extends React.Component {
       <div>
         <form className="image-form" onSubmit={e => {
           e.preventDefault()
-          
+
           if (!fileInput.value.trim()) {
             return
           }
-          const fileName = fileInput.value
+          if (!titleInput.value.trim()) {
+            return
+          }
+          const src = fileInput.value
+          const title = titleInput.value
 
-          renderer.copyFileToUserFolder(fileName)
-          .then(() => {
-            if (!titleInput.value.trim()) {
-                return
-            }
-            this.props.dispatch(addPhoto({
-                src: fileName,
-                title: titleInput.value,
+          renderer.copyFileToUserFolder(src, title)
+            .then(() => {
+
+              this.props.dispatch(addPhoto({
+                src,
+                title,
                 isSelected: false
-            }))
-            fileInput.value = ''
-            titleInput.value = ''
-          })
-          .catch((err) => {
-            this.setState({
-              errorMessage: err.message
+              }))
+              fileInput.value = ''
+              titleInput.value = ''
             })
-          })
+            .catch((err) => {
+              this.setState({
+                errorMessage: err.message
+              })
+            })
         }}>
           <span>{this.state.errorMessage}</span>
           <div>
@@ -57,7 +59,8 @@ class AddPhoto extends React.Component {
                 if (file) {
                   fileInput.value = file
                 }
-              })}}>
+              })
+            }}>
               Select Image
             </button>
           </div>
