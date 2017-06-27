@@ -10,7 +10,8 @@
     "electron": "electron .",
     "start-hot-renderer": "cross-env HOT=1 NODE_ENV=development electron .",
     "flow": "\"./node_modules/.bin/flow\" check",
-    "bootstrap": "git clean -xdff && yarn cache clean && npm i"
+    "bootstrap": "git clean -xdff && yarn cache clean && npm i",
+    "lint": "\"./node_modules/.bin/eslint\" src/"
   },
   "repository": "https://github.com/electron/electron-quick-start",
   "keywords": [],
@@ -25,6 +26,12 @@
     "cross-env": "^5.0.0",
     "css-loader": "^0.28.4",
     "electron": "~1.6.2",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^15.0.1",
+    "eslint-config-airbnb-flow": "^1.0.2",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^3.0.2",
+    "eslint-plugin-react": "^7.0.1",
     "file-loader": "^0.11.1",
     "flow-bin": "^0.48.0",
     "node-sass": "^4.5.3",

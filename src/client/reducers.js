@@ -1,13 +1,13 @@
 // @flow
 
-import { combineReducers } from 'redux'
+import { combineReducers } from 'redux';
 
-import entries from './domain/entries/entryReducers'
-import photos from './domain/photos/photoReducers'
+import * as entries from './domain/entries/entryReducers';
+import * as photos from './domain/photos/photoReducers';
 
 const timelineApp = combineReducers({
-    entries,
-    photos
-})
+  entries,
+  photos
+});
 
-export default timelineApp
+export default timelineApp;
