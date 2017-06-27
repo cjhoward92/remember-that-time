@@ -1,6 +1,7 @@
 // @flow
 
-import React, { PropTypes, Element } from 'react';
+import React, { Element } from 'react'
+import PropTypes from 'prop-types'
 import type { PhotoItem } from '../types'
 
 type InnerProps = {
@@ -9,9 +10,11 @@ type InnerProps = {
 }
 
 const Photo = (props: InnerProps): Element<any> => (
-    <li className={"photo " + (props.item.isSelected ? 'selected-photo' : '')} 
+    <li className={"photo"} 
         onClick={()=>props.onClick(props.item)}>
-        <img src={("file:///") + props.item.src} title={props.item.title} />
+        <div className={(props.item.isSelected ? 'selected-photo' : '')}>
+            <img src={("file:///") + props.item.src} title={props.item.title} />
+        </div>
     </li>
 )
 

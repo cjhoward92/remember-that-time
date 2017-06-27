@@ -16,7 +16,7 @@ renderer.loadFilesFromUserFolder().forEach(f => {
 
 const initialState = {
   entries: [],
-  photos
+  photos: []
 }
 
 let store = createStore(timelineApp, initialState)

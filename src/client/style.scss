@@ -52,7 +52,29 @@ footer {
 
 .photo {
     display: block;
-    max-width:100%;
+    margin: 2px;
+    user-select: none;
+    
+    img {
+        display: block;
+        max-width:100%;
+    }
+}
+
+.selected-photo {
+    position: relative;
+}
+
+.selected-photo:after {
+    content: " ";
+    z-index: 10;
+    display: block;
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(4, 130, 255, 0.5);
 }
 
 .sidebar {
@@ -62,4 +84,8 @@ footer {
 
 .image-form {
     display: block;
+}
+
+.hidden {
+    display: none;
 }

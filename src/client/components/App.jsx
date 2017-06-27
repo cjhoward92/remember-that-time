@@ -17,7 +17,6 @@ export default class App extends React.Component {
                 <div className="main-content">
                     <Timeline onClick={() => alert('clicked')} />
                 </div>
-                <Footer />
             </div>
         )
     }

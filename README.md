@@ -1,3 +1,7 @@
+# Remember that time...
+
+A fun app to display images on an interactive timeline.
+
 # electron-quick-start
 
 **Clone and run for a quick way to see Electron in action.**
