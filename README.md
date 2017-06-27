@@ -2,48 +2,20 @@
 
 A fun app to display images on an interactive timeline.
 
-# electron-quick-start
+## About
 
-**Clone and run for a quick way to see Electron in action.**
+This app is a fun little project to learn more about the `electron` + `react` stack. It also uses `flow` and `redux` heavily.
 
-This is a minimal Electron application based on the [Quick Start Guide](http://electron.atom.io/docs/tutorial/quick-start) within the Electron documentation.
+The app is eventually going to have an interactive timeline that runs down the center of the main panel. This timeline will allow users to drag and drop photos from their upload list to the timeline. When they do this they will be prompted for a description and a date.
 
-**Use this app along with the [Electron API Demos](http://electron.atom.io/#get-started) app for API code examples to help you get started.**
+The app still needs a few things to even be bootstrapped properly.
 
-A basic Electron application needs just these files:
+ - The webpack dev server needs to be changed so `node` modules can be imported to the client modules. Right now the webpack dev server simulates a web server so you can only import libraries you would find on the web. This sucks
 
-- `package.json` - Points to the app's main file and lists its details and dependencies.
-- `main.js` - Starts the app and creates a browser window to render HTML. This is the app's **main process**.
-- `index.html` - A web page to render. This is the app's **renderer process**.
+ - The webpack build process needs to build sourcemaps (this is easy to do)
 
-You can learn more about each of these components within the [Quick Start Guide](http://electron.atom.io/docs/tutorial/quick-start).
+ - The main page needs to be styled (IE App global styles)
 
-## To Use
+ - Functionality to display the timeline needs to be added. The timeline components do not exist.
 
-To clone and run this repository you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
-
-```bash
-# Clone this repository
-git clone https://github.com/electron/electron-quick-start
-# Go into the repository
-cd electron-quick-start
-# Install dependencies
-npm install
-# Run the app
-npm start
-```
-
-Note: If you're using Linux Bash for Windows, [see this guide](https://www.howtogeek.com/261575/how-to-run-graphical-linux-desktop-applications-from-windows-10s-bash-shell/) or use `node` from the command prompt.
-
-## Resources for Learning Electron
-
-- [electron.atom.io/docs](http://electron.atom.io/docs) - all of Electron's documentation
-- [electron.atom.io/community/#boilerplates](http://electron.atom.io/community/#boilerplates) - sample starter apps created by the community
-- [electron/electron-quick-start](https://github.com/electron/electron-quick-start) - a very basic starter Electron app
-- [electron/simple-samples](https://github.com/electron/simple-samples) - small applications with ideas for taking them further
-- [electron/electron-api-demos](https://github.com/electron/electron-api-demos) - an Electron app that teaches you how to use Electron
-- [hokein/electron-sample-apps](https://github.com/hokein/electron-sample-apps) - small demo apps for the various Electron APIs
-
-## License
-
-[CC0 1.0 (Public Domain)](LICENSE.md)
+ - The actions needs to be turned into sagas with `redux-sagas`
