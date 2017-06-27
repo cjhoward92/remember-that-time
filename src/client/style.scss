@@ -1,0 +1,91 @@
+$icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
+$bootstrap-sass-asset-helper: true;
+@import '~bootstrap-sass/assets/stylesheets/_bootstrap.scss';
+
+html {
+    position: relative;
+}
+
+body {
+    margin: 0 0 50px;
+    padding: 25px;
+    font-family: 'Segeo UI', 'Arial', sans-serif;
+}
+
+.main-content {
+    margin-left: 10px;
+    float: right;
+    display: block;
+    width: calc(100% - 260px);
+}
+
+footer {
+    position: fixed;
+    height: 50px;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    overflow: hidden;
+    text-align: center;
+    padding-top: 10px;
+    font-size: 16px;
+}
+
+.timeline {
+    display: block;
+    border-radius: 5px;
+    min-height: 50px;
+    min-width: 50px;
+    background: blue;
+}
+
+.photolist {
+    list-style: none;
+    display: block;
+    border: thin solid silver;
+    position: relative;
+    border-radius: 4px;
+    padding: 4px;
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.photo {
+    display: block;
+    margin: 2px;
+    user-select: none;
+    
+    img {
+        display: block;
+        max-width:100%;
+    }
+}
+
+.selected-photo {
+    position: relative;
+}
+
+.selected-photo:after {
+    content: " ";
+    z-index: 10;
+    display: block;
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(4, 130, 255, 0.5);
+}
+
+.sidebar {
+    float: left;
+    width: 250px;
+}
+
+.image-form {
+    display: block;
+}
+
+.hidden {
+    display: none;
+}

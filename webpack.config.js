@@ -47,7 +47,10 @@ let config = {
     module: {
         loaders: [
             { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
-            { test: /\.jsx$/, loader: 'babel-loader', exclude: /node_modules/ }
+            { test: /\.jsx$/, loader: 'babel-loader', exclude: /node_modules/ },
+            { test: /\.scss$/, loaders: ['style-loader', 'css-loader', 'sass-loader'], exclude: /node_modules/ },
+            {test: /\.woff(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "url-loader?limit=10000&minetype=application/font-woff" },
+            {test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file-loader" }
         ]
     },
     plugins: [new webpack.HotModuleReplacementPlugin({

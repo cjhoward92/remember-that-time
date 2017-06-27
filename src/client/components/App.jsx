@@ -1,13 +1,22 @@
 import React from 'react';
-import Timeline from './Timeline.jsx'
+import Timeline from './Timeline.jsx';
+import Footer from './Footer.jsx';
+import VisiblePhotolist from '../containers/VisiblePhotoList'
+import AddPhoto from '../containers/AddPhoto'
+import '../style.scss';
+import 'jQuery';
 
 export default class App extends React.Component {
     render() {
         return (
-            <div style={{ textAlign: 'center' }}>
-                <h1>Hello World!</h1>
-                <p>This is an awesome app bro!</p>
-                <Timeline msg={"This is an empty timeline!!!"} />
+            <div>
+                <div className="sidebar">
+                    <AddPhoto />
+                    <VisiblePhotolist />
+                </div>
+                <div className="main-content">
+                    <Timeline onClick={() => alert('clicked')} />
+                </div>
             </div>
         )
     }
