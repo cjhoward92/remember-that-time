@@ -57,7 +57,7 @@ module.exports.selectImage = (cb) => {
 };
 
 // Immediately return the folder
-const userFolder = (function () {
+const userFolder = (function () { // eslint-disable-line
   let directory = process.env.APPDATA ||
     (process.platform === 'darwin'
       ? `${process.env.HOME}Library/Preferences`
