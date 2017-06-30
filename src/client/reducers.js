@@ -7,7 +7,7 @@ import * as photos from './domain/photos/photoReducers';
 
 const timelineApp = combineReducers({
   entries,
-  photos
+  photos,
 });
 
 export default timelineApp;
