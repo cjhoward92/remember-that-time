@@ -1,7 +1,7 @@
 // @flow
 
 import { connect } from 'react-redux';
-import Photolist from '../components/Photolist';
+import Photolist from '../components/Photolist.jsx';
 import { selectPhoto } from '../actions';
 import type { PhotoItem, State } from '../types';
 

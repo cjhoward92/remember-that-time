@@ -1,4 +1,6 @@
 [ignore]
+  ./scripts
+  ./webpack.config.js
 
 [include]
 

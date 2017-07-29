@@ -1,8 +1,8 @@
 import React from 'react';
-import Timeline from './Timeline';
-import VisiblePhotolist from '../containers/VisiblePhotoList';
-import AddPhoto from '../containers/AddPhoto';
-import '../style.scss';
+import Timeline from './Timeline.jsx';
+import VisiblePhotolist from '../containers/VisiblePhotoList.jsx';
+import AddPhoto from '../containers/AddPhoto.jsx';
+import '../../public/styles/style.scss';
 
 const App = () => (
   <div>

@@ -1,3 +1,6 @@
 # /node_modules/* and /bower_components/* ignored by default
 dist/*
 src/client/index.js
+scripts/
+gulp/
+gulpfile.js

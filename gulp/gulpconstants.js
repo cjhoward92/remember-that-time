@@ -1,0 +1,1 @@
+exports.OUT_DIR = 'dist';
