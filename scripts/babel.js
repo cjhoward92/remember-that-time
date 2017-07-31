@@ -5,7 +5,7 @@ const command = '\"./node_modules/.bin/babel\" src --out-dir dist --source-maps'
 
 const start = () => {
   console.log('Deleting output directory...');
-  del('./dist')
+  return del('./dist')
     .then(() => {
       console.log('Using babel to transpile code...');
       return exec(command);
@@ -14,4 +14,4 @@ const start = () => {
     .catch(err => console.log(err));
 };
 
-start();
+module.exports = start;
